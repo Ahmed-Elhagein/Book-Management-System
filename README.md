@@ -323,9 +323,12 @@ MenuHandler ..> TransactionManager : uses
 
 2\. Open in Visual Studio:
 
-&nbsp;  - Load BookManagementSystem.sln
 
-&nbsp;  - Set configuration to x64 Debug (or Release)
+&nbsp;  - Navigate to the cloned folder: Book-Management-System.
+&nbsp;  - Open BookManagementSystem.vcxproj (or BookManagementSystem.sln if available).
+&nbsp;  - Set configuration to x64 Debug (or Release) in the top toolbar.
+
+
 
 
 
