@@ -288,7 +288,7 @@ MenuHandler ..> TransactionManager : uses
 ...
 
 
----
+
 
 
 
