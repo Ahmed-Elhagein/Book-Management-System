@@ -1,0 +1,42 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.sln.docstates
+*.cache
+*.VC.db
+*.VC.VC.opendb
+*.VC.BOUM
+*.VC.NM
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+_ReSharper*/
+.idea/
+
+# Force include .bin data files (even in bin/)
+!*.bin
+!bin/*.bin
+
+# Executables (exclude these, but .bin stays)
+*.exe
+*.pdb
+*.ilk
+*.tlog
+*.lib
+*.a
+
+# Logs and temporary
+*.log
+*.tmp
+*.idb
+
+# OS generated files
+.DS_Store
+Thumbs.db
