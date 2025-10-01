@@ -86,6 +86,211 @@ Demonstrates \*\*OOP\*\* \& \*\*OOD\*\* principles with a modular, scalable, and
 
 
 
+## 🔹 UML Class Diagram - Book Management System
+
+
+classDiagram
+    %% Entities
+    class Book {
+        +int ID
+        +string Title
+        +string Author
+        +string Category
+        +string Description
+        +int Year
+        +int Quantity
+        +double Price
+        +bool isAvailable
+        +Book()
+        +getters/setters
+    }
+
+    class User {
+        +int ID
+        +string Username
+        +string Password
+        +string FullName
+        +string Phone
+        +string Email
+        +string Address
+        +string Role
+        +int Permissions
+        +string LastLoginDate
+        +bool IsActive
+        +getters/setters
+        +validatePassword()
+        +permissionOperations()
+    }
+
+    class Transaction {
+        +int ID
+        +int UserID
+        +int BookID
+        +string Type
+        +string Date
+        +getters/setters
+        +Transaction(IDGenerator)
+    }
+
+    %% Interfaces
+    class IManager {
+        <<interface>>
+        +AddEntity()
+        +ViewAll()
+        +Search(string)
+    }
+
+    class IStorage {
+        <<interface>>
+        +SaveBooks()
+        +LoadBooks()
+        +SaveUsers()
+        +LoadUsers()
+        +SaveTransactions()
+        +LoadTransactions()
+    }
+
+    %% Managers
+    class BookManager {
+        -vector~Book~ Books
+        -FileManager& filemanager
+        -UserManager& userManager
+        -IDGenerator& idGen
+        -BookPresenter presenter
+        -TransactionManager transManager
+        +CRUD()
+        +Search()
+        +Filter()
+        +Sort()
+        +BorrowReturn()
+    }
+
+    class UserManager {
+        -vector~User~ Users
+        -FileManager& filemanager
+        -IDGenerator& idGen
+        -User* currentUser
+        -UserPresenter presenter
+        +CRUD()
+        +Login()
+        +Logout()
+        +LockUnlock()
+        +ChangePassword()
+    }
+
+    class TransactionManager {
+        -FileManager& filemanager
+        -UserManager& userManager
+        -IDGenerator& idGen
+        -TransactionPresenter presenter
+        +CRUD()
+        +BorrowReturn()
+    }
+
+    %% Presenters
+    class BookPresenter {
+        +DisplayBooks()
+        +DisplayBook()
+        +DisplayStats()
+        +PrintHeader()
+        +PrintFooter()
+    }
+
+    class UserPresenter {
+        +DisplayUsers()
+        +DisplayUser()
+        +PrintHeader()
+        +PrintFooter()
+    }
+
+    class TransactionPresenter {
+        +DisplayTransactions()
+        +PrintHeader()
+        +PrintFooter()
+    }
+
+    %% Persistence
+    class FileManager {
+        -string BooksFile
+        -string UsersFile
+        -string TransactionsFile
+        +SaveBooks()
+        +LoadBooks()
+        +SaveUsers()
+        +LoadUsers()
+        +SaveTransactions()
+        +LoadTransactions()
+    }
+
+    class BookSerializer {
+        +WriteToBinary()
+        +ReadFromBinary()
+    }
+
+    class UserSerializer {
+        +WriteToBinary()
+        +ReadFromBinary()
+    }
+
+    class TransactionSerializer {
+        +WriteToBinary()
+        +ReadFromBinary()
+    }
+
+    %% Utility
+    class IDGenerator {
+        -string idFile
+        -unordered_map~string, int~ counters
+        +GenerateID(string type)
+        +GetLastID(string type)
+    }
+
+    class MenuHandler {
+        -UserManager& userManager
+        -BookManager& bookManager
+        -TransactionManager& transManager
+        +ShowMenus()
+        +HandleInputs()
+    }
+
+    %% Relationships
+    BookManager --|> IManager
+    UserManager --|> IManager
+    TransactionManager --|> IManager
+    FileManager --|> IStorage
+
+    BookManager ..> BookPresenter : uses
+    UserManager ..> UserPresenter : uses
+    TransactionManager ..> TransactionPresenter : uses
+
+    BookManager ..> FileManager : uses
+    UserManager ..> FileManager : uses
+    TransactionManager ..> FileManager : uses
+
+    BookManager ..> IDGenerator : uses
+    UserManager ..> IDGenerator : uses
+    TransactionManager ..> IDGenerator : uses
+
+    BookManager ..> UserManager : uses
+    BookManager ..> TransactionManager : uses
+
+    TransactionManager ..> Book : uses
+    TransactionManager ..> User : uses
+
+    FileManager ..> BookSerializer : uses
+    FileManager ..> UserSerializer : uses
+    FileManager ..> TransactionSerializer : uses
+
+    MenuHandler ..> UserManager : uses
+    MenuHandler ..> BookManager : uses
+    MenuHandler ..> TransactionManager : uses
+
+
+
+---
+
+
+
 \## 🔹 Technologies \& Tools
 
 \- \*\*Language\*\*: C++17 (Standard Library)
