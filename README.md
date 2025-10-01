@@ -110,8 +110,7 @@ Demonstrates \*\*OOP\*\* \& \*\*OOD\*\* principles with a modular, scalable, and
 
 1\. Clone the repository:
 
-&nbsp;  git clone https://github.com/username/BookManagement.git
-
+&nbsp;  git clone https://github.com/Ahmed-Elhagein/Book-Management-System
 
 
 2\. Open in Visual Studio:
