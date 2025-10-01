@@ -285,10 +285,12 @@ MenuHandler ..> UserManager : uses
 MenuHandler ..> BookManager : uses
 MenuHandler ..> TransactionManager : uses
 
-...
+```
 
 
 
+
+---
 
 
 
