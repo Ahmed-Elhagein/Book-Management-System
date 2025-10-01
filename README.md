@@ -149,7 +149,7 @@ Demonstrates \*\*OOP\*\* \& \*\*OOD\*\* principles with a modular, scalable, and
 
 \- books.bin: Sample books
 
-\- users.bin: Default admin (UserName: Ahmed, Password: Ahmed@1234) \& Default User (UserName: Sayed, Password: Sayed@1234)
+\- users.bin: Default admin (UserName: Ahmed, Password: Ahmed@1234) \& Default User (UserName: Sayed, Password:  Sayed@1234)
 
 \- transactions.bin \& ids.bin: Empty for new sessions
 
